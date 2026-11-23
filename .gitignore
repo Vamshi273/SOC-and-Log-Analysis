@@ -14,3 +14,10 @@ __pycache__/
 01_Windows_Event_Log_Analysis/src/main.py.backup
 01_Windows_Event_Log_Analysis/src/main_backup.py
 
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Local development files
+*.backup
