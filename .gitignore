@@ -5,3 +5,12 @@ __pycache__/
 *.log
 .pytest_cache/
 .vscode/
+
+# Private Windows event data and generated reports
+01_Windows_Event_Log_Analysis/sample_logs/windows_security_logs.csv
+01_Windows_Event_Log_Analysis/reports/
+
+# Local backup files
+01_Windows_Event_Log_Analysis/src/main.py.backup
+01_Windows_Event_Log_Analysis/src/main_backup.py
+
