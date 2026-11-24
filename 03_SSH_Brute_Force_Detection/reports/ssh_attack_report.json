@@ -1,0 +1,277 @@
+{
+    "metadata": {
+        "module": "SSH Brute-Force Detection",
+        "generated_at": "2026-11-24T17:40:05.473976+00:00",
+        "report_version": "1.0"
+    },
+    "summary": {
+        "total_events": 16,
+        "failed_attempts": 15,
+        "successful_logins": 1,
+        "total_alerts": 4,
+        "severity_counts": {
+            "LOW": 0,
+            "MEDIUM": 1,
+            "HIGH": 2,
+            "CRITICAL": 1
+        }
+    },
+    "alerts": [
+        {
+            "rule": "SSH_BRUTE_FORCE",
+            "severity": "MEDIUM",
+            "timestamp": "2026-11-24T09:04:01",
+            "source_ips": [
+                "203.0.113.50"
+            ],
+            "targeted_usernames": [
+                "shiva"
+            ],
+            "failed_attempts": 5,
+            "successful_logins": 0,
+            "description": "5 failed SSH attempts from 203.0.113.50 within 5 minutes."
+        },
+        {
+            "rule": "SSH_SUCCESS_AFTER_BRUTE_FORCE",
+            "severity": "CRITICAL",
+            "timestamp": "2026-11-24T09:04:30",
+            "source_ips": [
+                "203.0.113.50"
+            ],
+            "targeted_usernames": [
+                "shiva"
+            ],
+            "failed_attempts": 5,
+            "successful_logins": 1,
+            "description": "Successful SSH login for shiva from 203.0.113.50 following 5 failed attempts."
+        },
+        {
+            "rule": "SSH_MULTI_ACCOUNT_BRUTE_FORCE",
+            "severity": "HIGH",
+            "timestamp": "2026-11-24T09:14:01",
+            "source_ips": [
+                "198.51.100.25"
+            ],
+            "targeted_usernames": [
+                "admin",
+                "guest",
+                "oracle",
+                "root",
+                "test"
+            ],
+            "failed_attempts": 5,
+            "successful_logins": 0,
+            "description": "5 failed SSH attempts from 198.51.100.25 within 5 minutes."
+        },
+        {
+            "rule": "SSH_DISTRIBUTED_BRUTE_FORCE",
+            "severity": "HIGH",
+            "timestamp": "2026-11-24T09:24:01",
+            "source_ips": [
+                "192.0.2.10",
+                "192.0.2.11",
+                "192.0.2.12"
+            ],
+            "targeted_usernames": [
+                "deploy"
+            ],
+            "failed_attempts": 5,
+            "successful_logins": 0,
+            "description": "Account deploy received 5 failed SSH attempts from 3 source IPs."
+        }
+    ],
+    "events": [
+        {
+            "timestamp": "2026-11-24T09:00:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2001]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41001 ssh2",
+            "raw": "Nov 24 09:00:01 ubuntu-server sshd[2001]: Failed password for shiva from 203.0.113.50 port 41001 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:01:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2002]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41002 ssh2",
+            "raw": "Nov 24 09:01:01 ubuntu-server sshd[2002]: Failed password for shiva from 203.0.113.50 port 41002 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:02:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2003]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41003 ssh2",
+            "raw": "Nov 24 09:02:01 ubuntu-server sshd[2003]: Failed password for shiva from 203.0.113.50 port 41003 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:03:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2004]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41004 ssh2",
+            "raw": "Nov 24 09:03:01 ubuntu-server sshd[2004]: Failed password for shiva from 203.0.113.50 port 41004 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:04:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2005]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41005 ssh2",
+            "raw": "Nov 24 09:04:01 ubuntu-server sshd[2005]: Failed password for shiva from 203.0.113.50 port 41005 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:04:30",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2006]",
+            "event_type": "SSH_LOGIN_SUCCESS",
+            "status": "SUCCESS",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Accepted password for shiva from 203.0.113.50 port 41006 ssh2",
+            "raw": "Nov 24 09:04:30 ubuntu-server sshd[2006]: Accepted password for shiva from 203.0.113.50 port 41006 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:10:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2007]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "admin",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for admin from 198.51.100.25 port 42001 ssh2",
+            "raw": "Nov 24 09:10:01 ubuntu-server sshd[2007]: Failed password for admin from 198.51.100.25 port 42001 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:11:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2008]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "root",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for root from 198.51.100.25 port 42002 ssh2",
+            "raw": "Nov 24 09:11:01 ubuntu-server sshd[2008]: Failed password for root from 198.51.100.25 port 42002 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:12:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2009]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "test",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for test from 198.51.100.25 port 42003 ssh2",
+            "raw": "Nov 24 09:12:01 ubuntu-server sshd[2009]: Failed password for test from 198.51.100.25 port 42003 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:13:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2010]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "guest",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for guest from 198.51.100.25 port 42004 ssh2",
+            "raw": "Nov 24 09:13:01 ubuntu-server sshd[2010]: Failed password for guest from 198.51.100.25 port 42004 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:14:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2011]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "oracle",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for oracle from 198.51.100.25 port 42005 ssh2",
+            "raw": "Nov 24 09:14:01 ubuntu-server sshd[2011]: Failed password for oracle from 198.51.100.25 port 42005 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:20:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2012]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "deploy",
+            "source_ip": "192.0.2.10",
+            "method": "password",
+            "details": "Failed password for deploy from 192.0.2.10 port 43001 ssh2",
+            "raw": "Nov 24 09:20:01 ubuntu-server sshd[2012]: Failed password for deploy from 192.0.2.10 port 43001 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:21:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2013]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "deploy",
+            "source_ip": "192.0.2.11",
+            "method": "password",
+            "details": "Failed password for deploy from 192.0.2.11 port 43002 ssh2",
+            "raw": "Nov 24 09:21:01 ubuntu-server sshd[2013]: Failed password for deploy from 192.0.2.11 port 43002 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:22:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2014]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "deploy",
+            "source_ip": "192.0.2.12",
+            "method": "password",
+            "details": "Failed password for deploy from 192.0.2.12 port 43003 ssh2",
+            "raw": "Nov 24 09:22:01 ubuntu-server sshd[2014]: Failed password for deploy from 192.0.2.12 port 43003 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:23:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2015]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "deploy",
+            "source_ip": "192.0.2.10",
+            "method": "password",
+            "details": "Failed password for deploy from 192.0.2.10 port 43004 ssh2",
+            "raw": "Nov 24 09:23:01 ubuntu-server sshd[2015]: Failed password for deploy from 192.0.2.10 port 43004 ssh2"
+        },
+        {
+            "timestamp": "2026-11-24T09:24:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[2016]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "deploy",
+            "source_ip": "192.0.2.11",
+            "method": "password",
+            "details": "Failed password for deploy from 192.0.2.11 port 43005 ssh2",
+            "raw": "Nov 24 09:24:01 ubuntu-server sshd[2016]: Failed password for deploy from 192.0.2.11 port 43005 ssh2"
+        }
+    ]
+}

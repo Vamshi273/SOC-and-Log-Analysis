@@ -1,0 +1,5 @@
+﻿rule,severity,timestamp,source_ips,targeted_usernames,failed_attempts,successful_logins,description
+SSH_BRUTE_FORCE,MEDIUM,2026-11-24T09:04:01,203.0.113.50,shiva,5,0,5 failed SSH attempts from 203.0.113.50 within 5 minutes.
+SSH_SUCCESS_AFTER_BRUTE_FORCE,CRITICAL,2026-11-24T09:04:30,203.0.113.50,shiva,5,1,Successful SSH login for shiva from 203.0.113.50 following 5 failed attempts.
+SSH_MULTI_ACCOUNT_BRUTE_FORCE,HIGH,2026-11-24T09:14:01,198.51.100.25,"admin, guest, oracle, root, test",5,0,5 failed SSH attempts from 198.51.100.25 within 5 minutes.
+SSH_DISTRIBUTED_BRUTE_FORCE,HIGH,2026-11-24T09:24:01,"192.0.2.10, 192.0.2.11, 192.0.2.12",deploy,5,0,Account deploy received 5 failed SSH attempts from 3 source IPs.
