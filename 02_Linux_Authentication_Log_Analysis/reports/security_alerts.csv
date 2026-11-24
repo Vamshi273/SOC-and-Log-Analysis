@@ -1,0 +1,7 @@
+﻿severity,alert_type,username,source_ip,timestamp,description
+INFO,Failed SSH Authentication,shiva,203.0.113.50,2026-11-23T09:01:15,Failed SSH authentication for shiva.
+INFO,Failed SSH Authentication,admin,203.0.113.50,2026-11-23T09:01:20,Failed SSH authentication for admin.
+MEDIUM,Invalid Username Attempt,test,203.0.113.50,2026-11-23T09:01:25,SSH authentication attempt involving unknown account: test
+MEDIUM,Invalid Username Attempt,guest,198.51.100.25,2026-11-23T09:02:00,SSH authentication attempt involving unknown account: guest
+HIGH,Successful Root SSH Login,root,198.51.100.80,2026-11-23T09:04:00,A successful SSH login was recorded for root.
+INFO,Failed SSH Authentication,root,203.0.113.50,2026-11-23T09:06:00,Failed SSH authentication for root.

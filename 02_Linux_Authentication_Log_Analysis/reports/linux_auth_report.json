@@ -1,0 +1,233 @@
+{
+    "report_metadata": {
+        "module": "Linux Authentication Log Analysis",
+        "generated_at": "2026-11-24T17:14:32.045969+00:00",
+        "source": "Linux authentication log"
+    },
+    "summary": {
+        "total_events": 12,
+        "event_counts": {
+            "SSH_LOGIN_SUCCESS": 2,
+            "SSH_LOGIN_FAILURE": 3,
+            "SSH_INVALID_USER": 2,
+            "SSH_ROOT_LOGIN": 1,
+            "SUDO_COMMAND": 1,
+            "OTHER": 1,
+            "PAM_SESSION": 2
+        },
+        "total_alerts": 6
+    },
+    "account_activity": {
+        "shiva": 5,
+        "admin": 1,
+        "test": 1,
+        "guest": 1,
+        "developer": 1,
+        "root": 2,
+        "Unknown": 1
+    },
+    "source_ip_activity": {
+        "192.168.1.10": 1,
+        "203.0.113.50": 4,
+        "198.51.100.25": 1,
+        "192.168.1.20": 1,
+        "198.51.100.80": 1,
+        "Unknown": 4
+    },
+    "alerts": [
+        {
+            "severity": "INFO",
+            "alert_type": "Failed SSH Authentication",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "timestamp": "2026-11-23T09:01:15",
+            "description": "Failed SSH authentication for shiva."
+        },
+        {
+            "severity": "INFO",
+            "alert_type": "Failed SSH Authentication",
+            "username": "admin",
+            "source_ip": "203.0.113.50",
+            "timestamp": "2026-11-23T09:01:20",
+            "description": "Failed SSH authentication for admin."
+        },
+        {
+            "severity": "MEDIUM",
+            "alert_type": "Invalid Username Attempt",
+            "username": "test",
+            "source_ip": "203.0.113.50",
+            "timestamp": "2026-11-23T09:01:25",
+            "description": "SSH authentication attempt involving unknown account: test"
+        },
+        {
+            "severity": "MEDIUM",
+            "alert_type": "Invalid Username Attempt",
+            "username": "guest",
+            "source_ip": "198.51.100.25",
+            "timestamp": "2026-11-23T09:02:00",
+            "description": "SSH authentication attempt involving unknown account: guest"
+        },
+        {
+            "severity": "HIGH",
+            "alert_type": "Successful Root SSH Login",
+            "username": "root",
+            "source_ip": "198.51.100.80",
+            "timestamp": "2026-11-23T09:04:00",
+            "description": "A successful SSH login was recorded for root."
+        },
+        {
+            "severity": "INFO",
+            "alert_type": "Failed SSH Authentication",
+            "username": "root",
+            "source_ip": "203.0.113.50",
+            "timestamp": "2026-11-23T09:06:00",
+            "description": "Failed SSH authentication for root."
+        }
+    ],
+    "events": [
+        {
+            "timestamp": "2026-11-23T09:00:01",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1001]",
+            "event_type": "SSH_LOGIN_SUCCESS",
+            "status": "SUCCESS",
+            "username": "shiva",
+            "source_ip": "192.168.1.10",
+            "method": "password",
+            "details": "Accepted password for shiva from 192.168.1.10 port 51234 ssh2",
+            "raw": "Nov 23 09:00:01 ubuntu-server sshd[1001]: Accepted password for shiva from 192.168.1.10 port 51234 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:01:15",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1002]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "shiva",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for shiva from 203.0.113.50 port 41234 ssh2",
+            "raw": "Nov 23 09:01:15 ubuntu-server sshd[1002]: Failed password for shiva from 203.0.113.50 port 41234 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:01:20",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1003]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "admin",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for admin from 203.0.113.50 port 41235 ssh2",
+            "raw": "Nov 23 09:01:20 ubuntu-server sshd[1003]: Failed password for admin from 203.0.113.50 port 41235 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:01:25",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1004]",
+            "event_type": "SSH_INVALID_USER",
+            "status": "SUSPICIOUS",
+            "username": "test",
+            "source_ip": "203.0.113.50",
+            "method": "Unknown",
+            "details": "Invalid user test from 203.0.113.50 port 41236",
+            "raw": "Nov 23 09:01:25 ubuntu-server sshd[1004]: Invalid user test from 203.0.113.50 port 41236"
+        },
+        {
+            "timestamp": "2026-11-23T09:02:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1005]",
+            "event_type": "SSH_INVALID_USER",
+            "status": "SUSPICIOUS",
+            "username": "guest",
+            "source_ip": "198.51.100.25",
+            "method": "password",
+            "details": "Failed password for invalid user guest from 198.51.100.25 port 41237 ssh2",
+            "raw": "Nov 23 09:02:00 ubuntu-server sshd[1005]: Failed password for invalid user guest from 198.51.100.25 port 41237 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:03:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1006]",
+            "event_type": "SSH_LOGIN_SUCCESS",
+            "status": "SUCCESS",
+            "username": "developer",
+            "source_ip": "192.168.1.20",
+            "method": "publickey",
+            "details": "Accepted publickey for developer from 192.168.1.20 port 41238 ssh2",
+            "raw": "Nov 23 09:03:00 ubuntu-server sshd[1006]: Accepted publickey for developer from 192.168.1.20 port 41238 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:04:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1007]",
+            "event_type": "SSH_ROOT_LOGIN",
+            "status": "REVIEW",
+            "username": "root",
+            "source_ip": "198.51.100.80",
+            "method": "password",
+            "details": "Accepted password for root from 198.51.100.80 port 41239 ssh2",
+            "raw": "Nov 23 09:04:00 ubuntu-server sshd[1007]: Accepted password for root from 198.51.100.80 port 41239 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:05:00",
+            "hostname": "ubuntu-server",
+            "process": "sudo[1008]",
+            "event_type": "SUDO_COMMAND",
+            "status": "PRIVILEGED_ACTIVITY",
+            "username": "shiva",
+            "source_ip": "Unknown",
+            "method": "Unknown",
+            "details": "Target=root; Command=/usr/bin/apt update; PWD=/home/shiva ",
+            "raw": "Nov 23 09:05:00 ubuntu-server sudo[1008]: shiva : TTY=pts/0 ; PWD=/home/shiva ; USER=root ; COMMAND=/usr/bin/apt update"
+        },
+        {
+            "timestamp": "2026-11-23T09:06:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1009]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "status": "FAILURE",
+            "username": "root",
+            "source_ip": "203.0.113.50",
+            "method": "password",
+            "details": "Failed password for root from 203.0.113.50 port 41240 ssh2",
+            "raw": "Nov 23 09:06:00 ubuntu-server sshd[1009]: Failed password for root from 203.0.113.50 port 41240 ssh2"
+        },
+        {
+            "timestamp": "2026-11-23T09:07:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1010]",
+            "event_type": "OTHER",
+            "status": "INFO",
+            "username": "Unknown",
+            "source_ip": "Unknown",
+            "method": "Unknown",
+            "details": "Connection closed by authenticating user admin 203.0.113.50 port 41241 [preauth]",
+            "raw": "Nov 23 09:07:00 ubuntu-server sshd[1010]: Connection closed by authenticating user admin 203.0.113.50 port 41241 [preauth]"
+        },
+        {
+            "timestamp": "2026-11-23T09:08:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1011]",
+            "event_type": "PAM_SESSION",
+            "status": "INFO",
+            "username": "shiva",
+            "source_ip": "Unknown",
+            "method": "Unknown",
+            "details": "pam_unix(sshd:session): session opened for user shiva(uid=1000) by (uid=0)",
+            "raw": "Nov 23 09:08:00 ubuntu-server sshd[1011]: pam_unix(sshd:session): session opened for user shiva(uid=1000) by (uid=0)"
+        },
+        {
+            "timestamp": "2026-11-23T09:09:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1012]",
+            "event_type": "PAM_SESSION",
+            "status": "INFO",
+            "username": "shiva",
+            "source_ip": "Unknown",
+            "method": "Unknown",
+            "details": "pam_unix(sshd:session): session closed for user shiva",
+            "raw": "Nov 23 09:09:00 ubuntu-server sshd[1012]: pam_unix(sshd:session): session closed for user shiva"
+        }
+    ]
+}
