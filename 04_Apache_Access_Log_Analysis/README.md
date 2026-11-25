@@ -1,135 +1,68 @@
-# Apache Access Log Analysis & Threat Detection
+# Apache Access Log Analyzer
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Domain](https://img.shields.io/badge/Domain-Cybersecurity-red)
-![Project](https://img.shields.io/badge/Project-SOC%20Analysis-purple)
-![Testing](https://img.shields.io/badge/Testing-Pytest-green)
+A Python-based defensive security tool for analyzing Apache HTTP access logs, identifying suspicious web activity, and generating security reports.
 
-A Python-based Security Operations Center (SOC) project that analyzes Apache HTTP access logs, detects suspicious web activity, identifies potential attack patterns, and generates structured security reports.
+## Features
 
----
+- Apache Combined Access Log parsing
+- HTTP request and response analysis
+- URL decoding and suspicious payload inspection
+- SQL injection detection
+- Cross-Site Scripting (XSS) detection
+- Directory traversal detection
+- Automated web scanner identification
+- Repeated authentication failure monitoring
+- Possible brute-force attack detection
+- Possible directory scanning detection
+- MITRE ATT&CK technique mapping
+- CSV and JSON report generation
+- Command-line interface
+- Automated testing with pytest
 
-## 1. Project Overview
-
-Apache web servers generate access logs containing information about incoming HTTP requests, client IP addresses, timestamps, requested resources, response codes, and user agents.
-
-Security analysts examine these logs to identify suspicious activities and investigate potential security incidents.
-
-This project implements a rule-based Apache access log analyzer that:
-
-- Parses Apache Combined Access Logs.
-- Extracts HTTP request information.
-- Decodes URL-encoded payloads.
-- Detects SQL injection patterns.
-- Identifies potential Cross-Site Scripting (XSS) attempts.
-- Detects directory traversal patterns.
-- Identifies automated web scanners.
-- Detects repeated authentication failures.
-- Identifies possible directory scanning.
-- Generates JSON and CSV security reports.
-
-The project uses a synthetic Apache access-log dataset for educational and testing purposes.
-
-## 2. Project Objectives
-
-1. Understand Apache access log formats.
-2. Develop a Python-based log parser.
-3. Identify suspicious HTTP request patterns.
-4. Implement rule-based security detection.
-5. Associate detected activities with relevant MITRE ATT&CK techniques.
-6. Generate structured security reports.
-7. Validate the implementation using automated tests.
-
-## 3. Project Architecture
-
-```text
-             Apache Access Log
-                     |
-                     v
-                Log Parser
-                     |
-                     v
-              Parsed HTTP Events
-                     |
-                     v
-               Detection Engine
-                     |
-          +----------+-----------+
-          |          |           |
-          v          v           v
-       SQLi/XSS   Web Scanner  Authentication
-      Traversal   Detection     Monitoring
-          |          |           |
-          +----------+-----------+
-                     |
-                     v
-               Security Alerts
-                     |
-                     v
-                Report Engine
-                     |
-                +----+----+
-                |         |
-                v         v
-               JSON      CSV
-```
-
-## 4. Project Structure
+## Project Structure
 
 ```text
 04_Apache_Access_Log_Analysis/
-|
-+-- src/
-|   +-- __init__.py
-|   +-- parser.py
-|   +-- detector.py
-|   +-- reporter.py
-|   +-- main.py
-|
-+-- sample_logs/
-|   +-- access.log
-|
-+-- reports/
-|   +-- security_alerts.json
-|   +-- security_alerts.csv
-|
-+-- README.md
+│
+├── README.md
+│
+├── src/
+│   ├── __init__.py
+│   ├── parser.py
+│   ├── detector.py
+│   ├── reporter.py
+│   └── main.py
+│
+├── sample_logs/
+│   └── access.log
+│
+└── reports/
+    ├── security_alerts.csv
+    └── security_alerts.json
 ```
 
-Automated tests are maintained in the repository's central `tests/` directory.
+## Technologies Used
 
-## 5. Technologies Used
+- **Python** – Log processing and security analysis
+- **Regular Expressions** – Suspicious pattern detection
+- **Apache Access Logs** – Web server log analysis
+- **JSON** – Structured security reports
+- **CSV** – Tabular security reports
+- **pytest** – Automated testing
+- **MITRE ATT&CK** – Threat technique mapping
 
-| Technology | Purpose |
-|---|---|
-| Python | Core implementation |
-| Regular Expressions | Pattern-based detection |
-| Apache Access Logs | Log analysis dataset |
-| JSON | Structured security reports |
-| CSV | Spreadsheet-compatible reports |
-| Pytest | Automated testing |
-| MITRE ATT&CK | Threat technique references |
-| PowerShell | Windows development environment |
+## Detection Capabilities
 
-## 6. Detection Capabilities
+### 1. SQL Injection Detection
 
-### 6.1 SQL Injection Detection
+Identifies suspicious SQL patterns in HTTP request URLs, including UNION SELECT, SELECT FROM, and suspicious OR-based conditions.
 
-Identifies suspicious SQL-related patterns in HTTP request URLs.
+**Severity:** High  
+**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application
 
-Detection indicators include:
+### 2. Cross-Site Scripting (XSS) Detection
 
-- `UNION SELECT`
-- `SELECT ... FROM`
-- Suspicious `OR 1=1` conditions
-
-**Severity:** HIGH
-
-**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application.
-
-### 6.2 Cross-Site Scripting (XSS) Detection
-
-Identifies suspicious script-related patterns in requested URLs.
+Identifies potentially malicious script-related patterns in requested URLs.
 
 Detection indicators include:
 
@@ -138,13 +71,12 @@ Detection indicators include:
 - `onerror=`
 - `onload=`
 
-**Severity:** HIGH
+**Severity:** High  
+**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application
 
-**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application.
+### 3. Directory Traversal Detection
 
-### 6.3 Directory Traversal Detection
-
-Identifies suspicious path traversal patterns and attempts to reference sensitive system files.
+Identifies suspicious path traversal patterns and attempts to access sensitive system files.
 
 Detection indicators include:
 
@@ -153,15 +85,14 @@ Detection indicators include:
 - `/etc/passwd`
 - `/etc/shadow`
 
-**Severity:** HIGH
+**Severity:** High  
+**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application
 
-**MITRE ATT&CK:** T1190 – Exploit Public-Facing Application.
+### 4. Automated Web Scanner Detection
 
-### 6.4 Automated Web Scanner Detection
+Identifies known web vulnerability scanner signatures through HTTP User-Agent fields.
 
-Identifies known scanner signatures in HTTP User-Agent fields.
-
-Recognized signatures:
+Recognized tools include:
 
 - sqlmap
 - Nikto
@@ -170,231 +101,111 @@ Recognized signatures:
 - DirBuster
 - WPScan
 
-Repeated scanner events from the same source IP are aggregated into one alert.
+**Severity:** Medium  
+**MITRE ATT&CK:** T1595 – Active Scanning
 
-**Severity:** MEDIUM
+### 5. Possible Login Brute Force Detection
 
-**MITRE ATT&CK:** T1595 – Active Scanning.
+Detects five or more HTTP 401 authentication responses from the same source IP address.
 
-### 6.5 Possible Login Brute Force Detection
+**Severity:** High  
+**MITRE ATT&CK:** T1110 – Brute Force
 
-Tracks HTTP 401 authentication responses by source IP address.
+### 6. Possible Directory Scanning Detection
 
-Detection threshold:
+Identifies three or more HTTP 404 responses from the same source IP address.
 
-- Five or more HTTP 401 responses from the same IP.
+**Severity:** Medium  
+**MITRE ATT&CK:** T1595.003 – Wordlist Scanning
 
-**Severity:** HIGH
+## Installation
 
-**MITRE ATT&CK:** T1110 – Brute Force.
-
-### 6.6 Possible Directory Scanning Detection
-
-Tracks HTTP 404 responses by source IP address.
-
-Detection threshold:
-
-- Three or more HTTP 404 responses from the same IP.
-
-**Severity:** MEDIUM
-
-**MITRE ATT&CK:** T1595.003 – Wordlist Scanning.
-
-These thresholds are simple detection heuristics and can be adjusted in the detection implementation.
-
-## 7. Sample Dataset
-
-The included synthetic dataset contains 17 Apache access-log entries.
-
-It includes:
-
-- Normal HTTP requests.
-- HTTP 401 authentication failures.
-- HTTP 403 forbidden responses.
-- HTTP 404 missing-resource responses.
-- SQL injection payloads.
-- XSS payloads.
-- Directory traversal attempts.
-- Automated scanner User-Agent signatures.
-
-The dataset uses documentation and private IP address ranges. It does not represent real-world attack traffic.
-
-## 8. Installation
-
-### Requirements
-
-- Python 3.9 or later.
-- pip.
-- Git.
-
-### Clone the Repository
+Run the following command from the main repository directory:
 
 ```bash
-git clone https://github.com/Vamshi273/SOC-and-Log-Analysis.git
-cd SOC-and-Log-Analysis
+pip install pytest
 ```
 
-### Install Testing Dependency
+## Usage
 
-```bash
-python -m pip install pytest
-```
+### Analyze the Sample Apache Access Logs
 
-If you already have a virtual environment, activate it before running the project.
-
-## 9. Running the Analyzer
-
-Run these commands from the repository root.
-
-### Windows PowerShell
-
-Set the Python module search path:
+Run from the repository root:
 
 ```powershell
 $env:PYTHONPATH = ".\04_Apache_Access_Log_Analysis"
+python -m src.main
 ```
 
-Run the analyzer:
+### Display Available Options
 
 ```powershell
-python -m src.main
+$env:PYTHONPATH = ".\04_Apache_Access_Log_Analysis"
+python -m src.main --help
 ```
 
 ### Analyze a Custom Log File
 
 ```powershell
+$env:PYTHONPATH = ".\04_Apache_Access_Log_Analysis"
 python -m src.main --log ".\04_Apache_Access_Log_Analysis\sample_logs\access.log"
 ```
 
 ### Specify a Custom Report Directory
 
 ```powershell
+$env:PYTHONPATH = ".\04_Apache_Access_Log_Analysis"
 python -m src.main --output ".\custom_reports"
 ```
 
-### Display Available CLI Options
+## Generated Reports
 
-```powershell
-python -m src.main --help
-```
+The analyzer generates two report formats:
 
-## 10. Sample Analysis Results
+| File | Description |
+|---|---|
+| `security_alerts.csv` | Tabular security alerts |
+| `security_alerts.json` | Structured JSON security alerts |
 
-Results from the included 17-line synthetic dataset:
+Reports are saved in the module's `reports/` directory.
 
-| Metric | Result |
-|---|---:|
-| Total log entries | 17 |
-| Successfully parsed | 17 |
-| Malformed entries | 0 |
-| Total security alerts | 6 |
+## Testing
 
-### Detected Security Alerts
-
-| Detection | Severity | MITRE ATT&CK | Event Count |
-|---|---|---|---:|
-| SQL Injection Attempt | HIGH | T1190 | 1 |
-| Cross-Site Scripting | HIGH | T1190 | 1 |
-| Directory Traversal | HIGH | T1190 | 1 |
-| Automated Web Scanner | MEDIUM | T1595 | 3 |
-| Possible Login Brute Force | HIGH | T1110 | 5 |
-| Possible Directory Scanning | MEDIUM | T1595.003 | 3 |
-
-## 11. Generated Security Reports
-
-The reporting module generates two report formats.
-
-### JSON Report
-
-**File:** `reports/security_alerts.json`
-
-Contains structured security alert information:
-
-- Source IP address.
-- Attack classification.
-- Severity.
-- Requested URL.
-- MITRE ATT&CK reference.
-- Detection evidence.
-- Event count, where applicable.
-
-### CSV Report
-
-**File:** `reports/security_alerts.csv`
-
-Provides spreadsheet-compatible security alerts for investigation, filtering, and analysis.
-
-Both report files are generated by the analyzer.
-
-## 12. Automated Testing
-
-The project includes automated tests covering parsing, detection, reporting, and command-line execution.
-
-Test files:
-
-```text
-tests/
-|
-+-- test_apache_log_analysis.py
-+-- test_apache_detection.py
-+-- test_apache_reporter.py
-+-- test_apache_cli.py
-```
-
-Run the Apache project tests from the repository root:
+Run the Apache project automated tests from the repository root:
 
 ```powershell
 $env:PYTHONPATH = ".\04_Apache_Access_Log_Analysis"
 
 python -m pytest `
-    tests/test_apache_log_analysis.py `
-    tests/test_apache_detection.py `
-    tests/test_apache_reporter.py `
-    tests/test_apache_cli.py -v
+    .\tests\test_apache_log_analysis.py `
+    .\tests\test_apache_detection.py `
+    .\tests\test_apache_reporter.py `
+    .\tests\test_apache_cli.py -v
 ```
 
-## 13. Detection Limitations
+**Test Results:** 25 tests passed.
 
-This project demonstrates basic rule-based security monitoring. It is not a production SIEM or a replacement for a full web application security monitoring solution.
+## Limitations
 
-Important limitations:
-
-- Detection rules depend on predefined patterns.
-- User-Agent signatures can be spoofed.
+- Detection depends on predefined patterns and thresholds.
 - HTTP 401 responses alone do not prove brute-force activity.
 - HTTP 404 responses may occur during normal browsing.
-- Threshold-based detection can miss low-frequency attacks.
+- User-Agent signatures can be spoofed.
 - Suspicious requests do not prove successful exploitation.
-- Detection is limited to information available in Apache access logs.
-- MITRE ATT&CK mappings are contextual associations, not confirmation that a particular technique was successfully executed.
+- MITRE ATT&CK mappings are contextual associations.
+- The project uses synthetic Apache access logs.
+- This project is not a replacement for an enterprise SIEM solution.
 
-The dataset is synthetic and intended for educational use.
+## Security Notice
 
-## 14. Future Improvements
+Use this tool only on systems and logs that you own or are authorized to analyze.
 
-Potential enhancements include:
+Do not publish real Apache access logs containing private IP information, session identifiers, or other sensitive data.
 
-- Real-time Apache log monitoring.
-- Configurable detection thresholds.
-- IP reputation enrichment.
-- Geographic IP enrichment.
-- Alert correlation across multiple log sources.
-- HTML investigation reports.
-- Security dashboard visualization.
-- Integration with SIEM platforms.
+## Project Status
 
-## 15. Author
+**Status:** Core implementation completed.
 
-**Vamshi A N**
+**Automated Tests:** 25 passed.
 
-Cybersecurity | SOC Analyst Portfolio
-
-GitHub Profile:  
-https://github.com/Vamshi273
-
-Project Repository:  
-https://github.com/Vamshi273/SOC-and-Log-Analysis
-
----
-
-*Educational cybersecurity project developed for authorized security analysis and SOC learning.*
+**Documentation:** Completed.
