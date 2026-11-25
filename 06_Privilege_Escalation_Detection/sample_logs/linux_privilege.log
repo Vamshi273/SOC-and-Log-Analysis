@@ -1,0 +1,9 @@
+Nov 25 09:00:01 ubuntu-server sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/id
+Nov 25 09:02:15 ubuntu-server sudo: pam_unix(sudo:session): session opened for user root by alice(uid=1000)
+Nov 25 09:05:20 ubuntu-server su: pam_unix(su:session): session opened for user root by bob(uid=1001)
+Nov 25 09:10:30 ubuntu-server useradd[2100]: new user: name=testuser, UID=1002, GID=1002, home=/home/testuser
+Nov 25 09:12:45 ubuntu-server usermod[2101]: add 'testuser' to group 'sudo'
+Nov 25 09:15:00 ubuntu-server groupadd[2102]: new group: name=securityteam, GID=1003
+Nov 25 09:20:00 ubuntu-server sudo: charlie : TTY=pts/1 ; PWD=/home/charlie ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Nov 25 09:25:00 ubuntu-server sshd[2200]: Accepted publickey for alice from 192.0.2.10 port 45000 ssh2
+Nov 25 09:30:00 ubuntu-server sudo: pam_unix(sudo:session): session closed for user root

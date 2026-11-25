@@ -1,0 +1,8 @@
+TimeCreated,Id,SubjectUserName,TargetUserName,MemberName,IpAddress,SubjectLogonId,PrivilegeList
+2026-11-25 09:00:01,4672,Administrator,Administrator,,,0x1001,SeSecurityPrivilege SeBackupPrivilege SeRestorePrivilege
+2026-11-25 09:05:12,4720,admin01,newuser01,,,0x1002,
+2026-11-25 09:08:30,4732,admin01,Administrators,CN=newuser01,CN=Users,DC=example,DC=com,,0x1002,
+2026-11-25 09:12:45,4738,admin01,newuser01,,,,0x1002,
+2026-11-25 09:20:00,4728,domainadmin,Domain Admins,CN=testuser,CN=Users,DC=example,DC=com,,0x1003,
+2026-11-25 09:25:30,4756,domainadmin,Enterprise Admins,CN=testuser2,CN=Users,DC=example,DC=com,,0x1003,
+2026-11-25 09:30:00,4624,Administrator,Administrator,,,0x1004,
