@@ -1,0 +1,307 @@
+{
+    "report_title": "Failed Login Investigation Report",
+    "generated_at": "2026-11-25T17:58:06.786859+00:00",
+    "summary": {
+        "total_failures": 8,
+        "platform_counts": {
+            "Windows": 4,
+            "Linux": 4
+        },
+        "category_counts": {
+            "INCORRECT_PASSWORD": 4,
+            "UNKNOWN_USERNAME": 2,
+            "ACCOUNT_LOCKED": 1,
+            "PAM_AUTHENTICATION_FAILURE": 1
+        },
+        "unique_usernames": 4,
+        "unique_source_ips": 4
+    },
+    "top_usernames": [
+        {
+            "username": "admin",
+            "count": 4
+        },
+        {
+            "username": "hacker",
+            "count": 2
+        },
+        {
+            "username": "guest",
+            "count": 1
+        },
+        {
+            "username": "root",
+            "count": 1
+        }
+    ],
+    "top_source_ips": [
+        {
+            "source_ip": "192.168.1.50",
+            "count": 3
+        },
+        {
+            "source_ip": "192.168.1.60",
+            "count": 2
+        },
+        {
+            "source_ip": "192.168.1.70",
+            "count": 2
+        },
+        {
+            "source_ip": "192.168.1.80",
+            "count": 1
+        }
+    ],
+    "timeline": [
+        {
+            "timestamp": "2026-11-25T09:00:00",
+            "platform": "Windows",
+            "username": "admin",
+            "source_ip": "192.168.1.50",
+            "failure_category": "INCORRECT_PASSWORD"
+        },
+        {
+            "timestamp": "2026-11-25T09:00:00",
+            "platform": "Linux",
+            "username": "admin",
+            "source_ip": "192.168.1.50",
+            "failure_category": "INCORRECT_PASSWORD"
+        },
+        {
+            "timestamp": "2026-11-25T09:01:00",
+            "platform": "Windows",
+            "username": "hacker",
+            "source_ip": "192.168.1.60",
+            "failure_category": "UNKNOWN_USERNAME"
+        },
+        {
+            "timestamp": "2026-11-25T09:01:00",
+            "platform": "Linux",
+            "username": "hacker",
+            "source_ip": "192.168.1.60",
+            "failure_category": "UNKNOWN_USERNAME"
+        },
+        {
+            "timestamp": "2026-11-25T09:02:00",
+            "platform": "Windows",
+            "username": "guest",
+            "source_ip": "192.168.1.70",
+            "failure_category": "ACCOUNT_LOCKED"
+        },
+        {
+            "timestamp": "2026-11-25T09:02:00",
+            "platform": "Linux",
+            "username": "admin",
+            "source_ip": "192.168.1.70",
+            "failure_category": "PAM_AUTHENTICATION_FAILURE"
+        },
+        {
+            "timestamp": "2026-11-25T09:03:00",
+            "platform": "Windows",
+            "username": "admin",
+            "source_ip": "192.168.1.50",
+            "failure_category": "INCORRECT_PASSWORD"
+        },
+        {
+            "timestamp": "2026-11-25T09:03:00",
+            "platform": "Linux",
+            "username": "root",
+            "source_ip": "192.168.1.80",
+            "failure_category": "INCORRECT_PASSWORD"
+        }
+    ],
+    "events": [
+        {
+            "platform": "Windows",
+            "event_id": "4625",
+            "timestamp": "2026-11-25T09:00:00",
+            "username": "admin",
+            "domain": "WORKGROUP",
+            "source_ip": "192.168.1.50",
+            "workstation": "DESKTOP-01",
+            "logon_type": "3",
+            "status": "0xC000006D",
+            "sub_status": "0xC000006A",
+            "failure_reason": "Unknown user name or bad password",
+            "authentication_package": "NTLM",
+            "logon_process": "NtLmSsp",
+            "subject_username": "Unknown",
+            "raw": {
+                "Id": "4625",
+                "TimeCreated": "2026-11-25T09:00:00",
+                "TargetUserName": "admin",
+                "TargetDomainName": "WORKGROUP",
+                "IpAddress": "192.168.1.50",
+                "WorkstationName": "DESKTOP-01",
+                "LogonType": "3",
+                "Status": "0xC000006D",
+                "SubStatus": "0xC000006A",
+                "FailureReason": "Unknown user name or bad password",
+                "AuthenticationPackageName": "NTLM",
+                "LogonProcessName": "NtLmSsp"
+            },
+            "failure_category": "INCORRECT_PASSWORD",
+            "failure_description": "The password is incorrect.",
+            "evidence_code": "0XC000006A"
+        },
+        {
+            "platform": "Windows",
+            "event_id": "4625",
+            "timestamp": "2026-11-25T09:01:00",
+            "username": "hacker",
+            "domain": "WORKGROUP",
+            "source_ip": "192.168.1.60",
+            "workstation": "UNKNOWN",
+            "logon_type": "3",
+            "status": "0xC000006D",
+            "sub_status": "0xC0000064",
+            "failure_reason": "Unknown user name or bad password",
+            "authentication_package": "NTLM",
+            "logon_process": "NtLmSsp",
+            "subject_username": "Unknown",
+            "raw": {
+                "Id": "4625",
+                "TimeCreated": "2026-11-25T09:01:00",
+                "TargetUserName": "hacker",
+                "TargetDomainName": "WORKGROUP",
+                "IpAddress": "192.168.1.60",
+                "WorkstationName": "UNKNOWN",
+                "LogonType": "3",
+                "Status": "0xC000006D",
+                "SubStatus": "0xC0000064",
+                "FailureReason": "Unknown user name or bad password",
+                "AuthenticationPackageName": "NTLM",
+                "LogonProcessName": "NtLmSsp"
+            },
+            "failure_category": "UNKNOWN_USERNAME",
+            "failure_description": "The specified username does not exist.",
+            "evidence_code": "0XC0000064"
+        },
+        {
+            "platform": "Windows",
+            "event_id": "4625",
+            "timestamp": "2026-11-25T09:02:00",
+            "username": "guest",
+            "domain": "WORKGROUP",
+            "source_ip": "192.168.1.70",
+            "workstation": "DESKTOP-02",
+            "logon_type": "10",
+            "status": "0xC0000234",
+            "sub_status": "0x00000000",
+            "failure_reason": "Account locked out",
+            "authentication_package": "Negotiate",
+            "logon_process": "User32",
+            "subject_username": "Unknown",
+            "raw": {
+                "Id": "4625",
+                "TimeCreated": "2026-11-25T09:02:00",
+                "TargetUserName": "guest",
+                "TargetDomainName": "WORKGROUP",
+                "IpAddress": "192.168.1.70",
+                "WorkstationName": "DESKTOP-02",
+                "LogonType": "10",
+                "Status": "0xC0000234",
+                "SubStatus": "0x00000000",
+                "FailureReason": "Account locked out",
+                "AuthenticationPackageName": "Negotiate",
+                "LogonProcessName": "User32"
+            },
+            "failure_category": "ACCOUNT_LOCKED",
+            "failure_description": "The user account is locked.",
+            "evidence_code": "0XC0000234"
+        },
+        {
+            "platform": "Windows",
+            "event_id": "4625",
+            "timestamp": "2026-11-25T09:03:00",
+            "username": "admin",
+            "domain": "WORKGROUP",
+            "source_ip": "192.168.1.50",
+            "workstation": "DESKTOP-01",
+            "logon_type": "3",
+            "status": "0xC000006D",
+            "sub_status": "0xC000006A",
+            "failure_reason": "Unknown user name or bad password",
+            "authentication_package": "NTLM",
+            "logon_process": "NtLmSsp",
+            "subject_username": "Unknown",
+            "raw": {
+                "Id": "4625",
+                "TimeCreated": "2026-11-25T09:03:00",
+                "TargetUserName": "admin",
+                "TargetDomainName": "WORKGROUP",
+                "IpAddress": "192.168.1.50",
+                "WorkstationName": "DESKTOP-01",
+                "LogonType": "3",
+                "Status": "0xC000006D",
+                "SubStatus": "0xC000006A",
+                "FailureReason": "Unknown user name or bad password",
+                "AuthenticationPackageName": "NTLM",
+                "LogonProcessName": "NtLmSsp"
+            },
+            "failure_category": "INCORRECT_PASSWORD",
+            "failure_description": "The password is incorrect.",
+            "evidence_code": "0XC000006A"
+        },
+        {
+            "platform": "Linux",
+            "timestamp": "2026-11-25T09:00:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1001]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "failure_type": "INCORRECT_PASSWORD",
+            "username": "admin",
+            "source_ip": "192.168.1.50",
+            "details": "Failed password for admin from 192.168.1.50 port 41000 ssh2",
+            "raw": "Nov 25 09:00:00 ubuntu-server sshd[1001]: Failed password for admin from 192.168.1.50 port 41000 ssh2",
+            "failure_category": "INCORRECT_PASSWORD",
+            "failure_description": "The SSH password authentication attempt failed.",
+            "evidence_code": "INCORRECT_PASSWORD"
+        },
+        {
+            "platform": "Linux",
+            "timestamp": "2026-11-25T09:01:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1002]",
+            "event_type": "SSH_INVALID_USER",
+            "failure_type": "UNKNOWN_USERNAME",
+            "username": "hacker",
+            "source_ip": "192.168.1.60",
+            "details": "Invalid user hacker from 192.168.1.60",
+            "raw": "Nov 25 09:01:00 ubuntu-server sshd[1002]: Invalid user hacker from 192.168.1.60",
+            "failure_category": "UNKNOWN_USERNAME",
+            "failure_description": "The requested username was not recognized.",
+            "evidence_code": "UNKNOWN_USERNAME"
+        },
+        {
+            "platform": "Linux",
+            "timestamp": "2026-11-25T09:02:00",
+            "hostname": "ubuntu-server",
+            "process": "sudo",
+            "event_type": "PAM_AUTHENTICATION_FAILURE",
+            "failure_type": "PAM_FAILURE",
+            "username": "admin",
+            "source_ip": "192.168.1.70",
+            "details": "authentication failure; user=admin rhost=192.168.1.70",
+            "raw": "Nov 25 09:02:00 ubuntu-server sudo: pam_unix(sudo:auth): authentication failure; user=admin rhost=192.168.1.70",
+            "failure_category": "PAM_AUTHENTICATION_FAILURE",
+            "failure_description": "PAM reported an authentication failure; the exact cause is not established.",
+            "evidence_code": "PAM_FAILURE"
+        },
+        {
+            "platform": "Linux",
+            "timestamp": "2026-11-25T09:03:00",
+            "hostname": "ubuntu-server",
+            "process": "sshd[1003]",
+            "event_type": "SSH_LOGIN_FAILURE",
+            "failure_type": "INCORRECT_PASSWORD",
+            "username": "root",
+            "source_ip": "192.168.1.80",
+            "details": "Failed password for root from 192.168.1.80 port 41003 ssh2",
+            "raw": "Nov 25 09:03:00 ubuntu-server sshd[1003]: Failed password for root from 192.168.1.80 port 41003 ssh2",
+            "failure_category": "INCORRECT_PASSWORD",
+            "failure_description": "The SSH password authentication attempt failed.",
+            "evidence_code": "INCORRECT_PASSWORD"
+        }
+    ]
+}

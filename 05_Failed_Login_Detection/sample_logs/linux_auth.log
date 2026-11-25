@@ -1,0 +1,5 @@
+Nov 25 09:00:00 ubuntu-server sshd[1001]: Failed password for admin from 192.168.1.50 port 41000 ssh2
+Nov 25 09:01:00 ubuntu-server sshd[1002]: Invalid user hacker from 192.168.1.60
+Nov 25 09:02:00 ubuntu-server sudo: pam_unix(sudo:auth): authentication failure; user=admin rhost=192.168.1.70
+Nov 25 09:03:00 ubuntu-server sshd[1003]: Failed password for root from 192.168.1.80 port 41003 ssh2
+Nov 25 09:04:00 ubuntu-server sshd[1004]: Accepted publickey for admin from 192.168.1.50 port 41004 ssh2

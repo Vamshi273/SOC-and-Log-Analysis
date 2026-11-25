@@ -1,0 +1,9 @@
+﻿platform,timestamp,username,source_ip,failure_category,failure_description,evidence_code,event_id,status,sub_status,failure_type,details
+Windows,2026-11-25T09:00:00,admin,192.168.1.50,INCORRECT_PASSWORD,The password is incorrect.,0XC000006A,4625,0xC000006D,0xC000006A,,
+Windows,2026-11-25T09:01:00,hacker,192.168.1.60,UNKNOWN_USERNAME,The specified username does not exist.,0XC0000064,4625,0xC000006D,0xC0000064,,
+Windows,2026-11-25T09:02:00,guest,192.168.1.70,ACCOUNT_LOCKED,The user account is locked.,0XC0000234,4625,0xC0000234,0x00000000,,
+Windows,2026-11-25T09:03:00,admin,192.168.1.50,INCORRECT_PASSWORD,The password is incorrect.,0XC000006A,4625,0xC000006D,0xC000006A,,
+Linux,2026-11-25T09:00:00,admin,192.168.1.50,INCORRECT_PASSWORD,The SSH password authentication attempt failed.,INCORRECT_PASSWORD,,,,INCORRECT_PASSWORD,Failed password for admin from 192.168.1.50 port 41000 ssh2
+Linux,2026-11-25T09:01:00,hacker,192.168.1.60,UNKNOWN_USERNAME,The requested username was not recognized.,UNKNOWN_USERNAME,,,,UNKNOWN_USERNAME,Invalid user hacker from 192.168.1.60
+Linux,2026-11-25T09:02:00,admin,192.168.1.70,PAM_AUTHENTICATION_FAILURE,PAM reported an authentication failure; the exact cause is not established.,PAM_FAILURE,,,,PAM_FAILURE,authentication failure; user=admin rhost=192.168.1.70
+Linux,2026-11-25T09:03:00,root,192.168.1.80,INCORRECT_PASSWORD,The SSH password authentication attempt failed.,INCORRECT_PASSWORD,,,,INCORRECT_PASSWORD,Failed password for root from 192.168.1.80 port 41003 ssh2

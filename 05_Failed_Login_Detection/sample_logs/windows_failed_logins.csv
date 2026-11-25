@@ -1,0 +1,6 @@
+Id,TimeCreated,TargetUserName,TargetDomainName,IpAddress,WorkstationName,LogonType,Status,SubStatus,FailureReason,AuthenticationPackageName,LogonProcessName
+4625,2026-11-25T09:00:00,admin,WORKGROUP,192.168.1.50,DESKTOP-01,3,0xC000006D,0xC000006A,Unknown user name or bad password,NTLM,NtLmSsp
+4625,2026-11-25T09:01:00,hacker,WORKGROUP,192.168.1.60,UNKNOWN,3,0xC000006D,0xC0000064,Unknown user name or bad password,NTLM,NtLmSsp
+4625,2026-11-25T09:02:00,guest,WORKGROUP,192.168.1.70,DESKTOP-02,10,0xC0000234,0x00000000,Account locked out,Negotiate,User32
+4625,2026-11-25T09:03:00,admin,WORKGROUP,192.168.1.50,DESKTOP-01,3,0xC000006D,0xC000006A,Unknown user name or bad password,NTLM,NtLmSsp
+4624,2026-11-25T09:04:00,admin,WORKGROUP,192.168.1.50,DESKTOP-01,3,0x00000000,0x00000000,,NTLM,NtLmSsp
