@@ -1,0 +1,57 @@
+[
+    {
+        "ip": "198.51.100.25",
+        "attack": "SQL Injection Attempt",
+        "severity": "HIGH",
+        "url": "/search?q=UNION%20SELECT%20password%20FROM%20users",
+        "mitre_attack": "T1190",
+        "evidence": "/search?q=union select password from users"
+    },
+    {
+        "ip": "198.51.100.26",
+        "attack": "Cross-Site Scripting (XSS)",
+        "severity": "HIGH",
+        "url": "/search?q=%3Cscript%3Ealert(1)%3C/script%3E",
+        "mitre_attack": "T1190",
+        "evidence": "/search?q=<script>alert(1)</script>"
+    },
+    {
+        "ip": "198.51.100.27",
+        "attack": "Directory Traversal",
+        "severity": "HIGH",
+        "url": "/download?file=../../etc/passwd",
+        "mitre_attack": "T1190",
+        "evidence": "/download?file=../../etc/passwd"
+    },
+    {
+        "ip": "203.0.113.70",
+        "attack": "Automated Web Scanner",
+        "severity": "MEDIUM",
+        "url": "Multiple resources",
+        "mitre_attack": "T1595",
+        "event_count": 3,
+        "evidence": [
+            "sqlmap/1.8",
+            "sqlmap/1.8",
+            "sqlmap/1.8"
+        ]
+    },
+    {
+        "ip": "192.0.2.45",
+        "attack": "Possible Login Brute Force",
+        "severity": "HIGH",
+        "url": "/login",
+        "mitre_attack": "T1110",
+        "event_count": 5,
+        "evidence": "5 HTTP 401 responses"
+    },
+    {
+        "ip": "203.0.113.70",
+        "attack": "Possible Directory Scanning",
+        "severity": "MEDIUM",
+        "url": "Multiple resources",
+        "mitre_attack": "T1595.003",
+        "event_count": 3,
+        "evidence": "3 HTTP 404 responses"
+    }
+]

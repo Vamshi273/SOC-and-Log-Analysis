@@ -1,0 +1,7 @@
+﻿ip,attack,severity,url,mitre_attack,event_count,evidence
+198.51.100.25,SQL Injection Attempt,HIGH,/search?q=UNION%20SELECT%20password%20FROM%20users,T1190,,/search?q=union select password from users
+198.51.100.26,Cross-Site Scripting (XSS),HIGH,/search?q=%3Cscript%3Ealert(1)%3C/script%3E,T1190,,/search?q=<script>alert(1)</script>
+198.51.100.27,Directory Traversal,HIGH,/download?file=../../etc/passwd,T1190,,/download?file=../../etc/passwd
+203.0.113.70,Automated Web Scanner,MEDIUM,Multiple resources,T1595,3,sqlmap/1.8 | sqlmap/1.8 | sqlmap/1.8
+192.0.2.45,Possible Login Brute Force,HIGH,/login,T1110,5,5 HTTP 401 responses
+203.0.113.70,Possible Directory Scanning,MEDIUM,Multiple resources,T1595.003,3,3 HTTP 404 responses
