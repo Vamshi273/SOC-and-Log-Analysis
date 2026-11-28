@@ -1,0 +1,188 @@
+{
+    "generated_at_utc": "2026-11-28T06:23:49.273878+00:00",
+    "summary": {
+        "total_records": 14,
+        "invalid_records": 0,
+        "total_alerts": 8,
+        "normal_records": 6,
+        "risk_summary": {
+            "LOW": 6,
+            "MEDIUM": 8,
+            "HIGH": 0,
+            "CRITICAL": 0
+        }
+    },
+    "invalid_records": [],
+    "results": [
+        {
+            "ProcessId": 4100,
+            "ProcessName": "explorer.exe",
+            "ParentProcessName": "winlogon.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\explorer.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 4200,
+            "ProcessName": "notepad.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\notepad.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 4300,
+            "ProcessName": "chrome.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 4400,
+            "ProcessName": "powershell.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 4500,
+            "ProcessName": "powershell.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "RiskScore": 30,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious argument: -encodedcommand"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 4600,
+            "ProcessName": "mshta.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\mshta.exe",
+            "RiskScore": 25,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious process: mshta.exe"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 4700,
+            "ProcessName": "cmd.exe",
+            "ParentProcessName": "winword.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\cmd.exe",
+            "RiskScore": 35,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious process chain: winword.exe -> cmd.exe"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 4800,
+            "ProcessName": "invoice.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Users\\SHIVA\\AppData\\Local\\Temp\\invoice.exe",
+            "RiskScore": 25,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious executable path: \\appdata\\local\\temp\\"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 4900,
+            "ProcessName": "certutil.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\certutil.exe",
+            "RiskScore": 25,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious process: certutil.exe"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 5000,
+            "ProcessName": "rundll32.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\rundll32.exe",
+            "RiskScore": 25,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious process: rundll32.exe"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 5100,
+            "ProcessName": "python.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Python313\\python.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 5200,
+            "ProcessName": "wscript.exe",
+            "ParentProcessName": "outlook.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Windows\\System32\\wscript.exe",
+            "RiskScore": 35,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious process chain: outlook.exe -> wscript.exe"
+            ],
+            "Status": "ALERT"
+        },
+        {
+            "ProcessId": 5300,
+            "ProcessName": "svchost.exe",
+            "ParentProcessName": "services.exe",
+            "Username": "NT AUTHORITY\\SYSTEM",
+            "ExecutablePath": "C:\\Windows\\System32\\svchost.exe",
+            "RiskScore": 0,
+            "RiskLevel": "LOW",
+            "Findings": [],
+            "Status": "NORMAL"
+        },
+        {
+            "ProcessId": 5400,
+            "ProcessName": "update.exe",
+            "ParentProcessName": "explorer.exe",
+            "Username": "SHIVA",
+            "ExecutablePath": "C:\\Users\\Public\\update.exe",
+            "RiskScore": 25,
+            "RiskLevel": "MEDIUM",
+            "Findings": [
+                "Suspicious executable path: \\users\\public\\"
+            ],
+            "Status": "ALERT"
+        }
+    ]
+}

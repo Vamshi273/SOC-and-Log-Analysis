@@ -1,0 +1,49 @@
+﻿{
+    "suspicious_processes": [
+        "certutil.exe",
+        "mshta.exe",
+        "rundll32.exe",
+        "regsvr32.exe",
+        "bitsadmin.exe",
+        "wmic.exe"
+    ],
+    "suspicious_arguments": [
+        "-encodedcommand",
+        "-enc ",
+        "-windowstyle hidden",
+        "-executionpolicy bypass",
+        "downloadstring",
+        "frombase64string",
+        "invoke-expression",
+        "invoke-webrequest"
+    ],
+    "suspicious_parent_child": [
+        {
+            "parent": "winword.exe",
+            "child": "powershell.exe"
+        },
+        {
+            "parent": "excel.exe",
+            "child": "cmd.exe"
+        },
+        {
+            "parent": "outlook.exe",
+            "child": "wscript.exe"
+        },
+        {
+            "parent": "winword.exe",
+            "child": "cmd.exe"
+        }
+    ],
+    "suspicious_paths": [
+        "\\appdata\\local\\temp\\",
+        "\\windows\\temp\\",
+        "\\users\\public\\"
+    ],
+    "risk_scores": {
+        "suspicious_process": 25,
+        "suspicious_argument": 30,
+        "suspicious_parent_child": 35,
+        "suspicious_path": 25
+    }
+}

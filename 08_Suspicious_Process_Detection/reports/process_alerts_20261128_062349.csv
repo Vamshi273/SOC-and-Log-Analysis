@@ -1,0 +1,9 @@
+﻿ProcessId,ProcessName,ParentProcessName,Username,ExecutablePath,RiskScore,RiskLevel,Findings,Status
+4500,powershell.exe,explorer.exe,SHIVA,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,30,MEDIUM,Suspicious argument: -encodedcommand,ALERT
+4600,mshta.exe,explorer.exe,SHIVA,C:\Windows\System32\mshta.exe,25,MEDIUM,Suspicious process: mshta.exe,ALERT
+4700,cmd.exe,winword.exe,SHIVA,C:\Windows\System32\cmd.exe,35,MEDIUM,Suspicious process chain: winword.exe -> cmd.exe,ALERT
+4800,invoice.exe,explorer.exe,SHIVA,C:\Users\SHIVA\AppData\Local\Temp\invoice.exe,25,MEDIUM,Suspicious executable path: \appdata\local\temp\,ALERT
+4900,certutil.exe,explorer.exe,SHIVA,C:\Windows\System32\certutil.exe,25,MEDIUM,Suspicious process: certutil.exe,ALERT
+5000,rundll32.exe,explorer.exe,SHIVA,C:\Windows\System32\rundll32.exe,25,MEDIUM,Suspicious process: rundll32.exe,ALERT
+5200,wscript.exe,outlook.exe,SHIVA,C:\Windows\System32\wscript.exe,35,MEDIUM,Suspicious process chain: outlook.exe -> wscript.exe,ALERT
+5400,update.exe,explorer.exe,SHIVA,C:\Users\Public\update.exe,25,MEDIUM,Suspicious executable path: \users\public\,ALERT
